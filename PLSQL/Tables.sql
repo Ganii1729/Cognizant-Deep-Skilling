@@ -1,0 +1,121 @@
+CREATE TABLE Customers (
+    CustomerID NUMBER PRIMARY KEY,
+    Name VARCHAR2(100),
+    DOB DATE,
+    Balance NUMBER,
+    LastModified DATE
+);
+
+CREATE TABLE Accounts (
+    AccountID NUMBER PRIMARY KEY,
+    CustomerID NUMBER,
+    AccountType VARCHAR2(20),
+    Balance NUMBER,
+    LastModified DATE,
+    FOREIGN KEY (CustomerID)
+        REFERENCES Customers(CustomerID)
+);
+
+CREATE TABLE Transactions (
+    TransactionID NUMBER PRIMARY KEY,
+    AccountID NUMBER,
+    TransactionDate DATE,
+    Amount NUMBER,
+    TransactionType VARCHAR2(10),
+    FOREIGN KEY (AccountID)
+        REFERENCES Accounts(AccountID)
+);
+
+CREATE TABLE Loans (
+    LoanID NUMBER PRIMARY KEY,
+    CustomerID NUMBER,
+    LoanAmount NUMBER,
+    InterestRate NUMBER,
+    StartDate DATE,
+    EndDate DATE,
+    FOREIGN KEY (CustomerID)
+        REFERENCES Customers(CustomerID)
+);
+
+CREATE TABLE Employees (
+    EmployeeID NUMBER PRIMARY KEY,
+    Name VARCHAR2(100),
+    Position VARCHAR2(50),
+    Salary NUMBER,
+    Department VARCHAR2(50),
+    HireDate DATE
+);
+
+CREATE TABLE AuditLog (
+    LogID NUMBER PRIMARY KEY,
+    TransactionID NUMBER,
+    Action VARCHAR2(20),
+    LogDate DATE
+);
+
+CREATE SEQUENCE AuditLog_SEQ START WITH 1 INCREMENT BY 1;
+
+INSERT INTO Customers VALUES (1,'John Doe',TO_DATE('1985-05-15','YYYY-MM-DD'),1000,SYSDATE);
+INSERT INTO Customers VALUES (2,'Jane Smith',TO_DATE('1990-07-20','YYYY-MM-DD'),1500,SYSDATE);
+INSERT INTO Customers VALUES (3,'Robert King',TO_DATE('1950-03-10','YYYY-MM-DD'),20000,SYSDATE);
+INSERT INTO Customers VALUES (4,'Mary Johnson',TO_DATE('1958-11-22','YYYY-MM-DD'),12000,SYSDATE);
+INSERT INTO Customers VALUES (5,'David Miller',TO_DATE('1975-01-17','YYYY-MM-DD'),8000,SYSDATE);
+INSERT INTO Customers VALUES (6,'Emma Wilson',TO_DATE('1962-08-12','YYYY-MM-DD'),25000,SYSDATE);
+INSERT INTO Customers VALUES (7,'Michael Brown',TO_DATE('1998-02-14','YYYY-MM-DD'),5000,SYSDATE);
+INSERT INTO Customers VALUES (8,'Sophia Davis',TO_DATE('1955-06-25','YYYY-MM-DD'),30000,SYSDATE);
+INSERT INTO Customers VALUES (9,'James Anderson',TO_DATE('1988-09-09','YYYY-MM-DD'),7000,SYSDATE);
+INSERT INTO Customers VALUES (10,'Olivia Thomas',TO_DATE('1960-12-05','YYYY-MM-DD'),18000,SYSDATE);
+
+COMMIT;
+
+INSERT INTO Accounts VALUES (101,1,'Savings',1000,SYSDATE);
+INSERT INTO Accounts VALUES (102,2,'Checking',1500,SYSDATE);
+INSERT INTO Accounts VALUES (103,3,'Savings',20000,SYSDATE);
+INSERT INTO Accounts VALUES (104,4,'Savings',12000,SYSDATE);
+INSERT INTO Accounts VALUES (105,5,'Checking',8000,SYSDATE);
+INSERT INTO Accounts VALUES (106,6,'Savings',25000,SYSDATE);
+INSERT INTO Accounts VALUES (107,7,'Savings',5000,SYSDATE);
+INSERT INTO Accounts VALUES (108,8,'Checking',30000,SYSDATE);
+INSERT INTO Accounts VALUES (109,9,'Savings',7000,SYSDATE);
+INSERT INTO Accounts VALUES (110,10,'Savings',18000,SYSDATE);
+
+COMMIT;
+
+INSERT INTO Loans VALUES (1,1,5000,5,SYSDATE,ADD_MONTHS(SYSDATE,60));
+INSERT INTO Loans VALUES (2,3,10000,8,SYSDATE,ADD_MONTHS(SYSDATE,24));
+INSERT INTO Loans VALUES (3,4,15000,7,SYSDATE,ADD_MONTHS(SYSDATE,36));
+INSERT INTO Loans VALUES (4,6,25000,9,SYSDATE,ADD_MONTHS(SYSDATE,48));
+INSERT INTO Loans VALUES (5,8,20000,6,SYSDATE,ADD_MONTHS(SYSDATE,30));
+INSERT INTO Loans VALUES (6,10,18000,8,SYSDATE,ADD_MONTHS(SYSDATE,18));
+
+COMMIT;
+
+INSERT INTO Transactions VALUES (1,101,SYSDATE,200,'Deposit');
+INSERT INTO Transactions VALUES (2,102,SYSDATE,300,'Withdrawal');
+INSERT INTO Transactions VALUES (3,103,SYSDATE,1000,'Deposit');
+INSERT INTO Transactions VALUES (4,104,SYSDATE,500,'Deposit');
+INSERT INTO Transactions VALUES (5,105,SYSDATE,100,'Withdrawal');
+INSERT INTO Transactions VALUES (6,106,SYSDATE,1200,'Deposit');
+INSERT INTO Transactions VALUES (7,107,SYSDATE,200,'Deposit');
+INSERT INTO Transactions VALUES (8,108,SYSDATE,5000,'Withdrawal');
+INSERT INTO Transactions VALUES (9,109,SYSDATE,400,'Deposit');
+INSERT INTO Transactions VALUES (10,110,SYSDATE,600,'Withdrawal');
+
+COMMIT;
+
+INSERT INTO Employees VALUES (1,'Alice Johnson','Manager',70000,'HR',TO_DATE('2015-06-15','YYYY-MM-DD'));
+INSERT INTO Employees VALUES (2,'Bob Brown','Developer',60000,'IT',TO_DATE('2017-03-20','YYYY-MM-DD'));
+INSERT INTO Employees VALUES (3,'Kevin Smith','Analyst',50000,'Finance',TO_DATE('2018-05-12','YYYY-MM-DD'));
+INSERT INTO Employees VALUES (4,'Nancy Lee','Clerk',40000,'HR',TO_DATE('2019-01-11','YYYY-MM-DD'));
+INSERT INTO Employees VALUES (5,'Chris Martin','Developer',65000,'IT',TO_DATE('2020-09-18','YYYY-MM-DD'));
+INSERT INTO Employees VALUES (6,'Laura Scott','Manager',80000,'Finance',TO_DATE('2014-11-25','YYYY-MM-DD'));
+
+COMMIT;
+
+
+
+SELECT * FROM Customers;
+SELECT * FROM Accounts;
+SELECT * FROM Transactions;
+SELECT * FROM Loans;
+SELECT * FROM Employees;
