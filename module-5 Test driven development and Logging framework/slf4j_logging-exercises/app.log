@@ -1,0 +1,4 @@
+21:04:33.833 [com.example.AppenderExample.main()] INFO  com.example.AppenderExample - Application Started
+21:04:33.837 [com.example.AppenderExample.main()] WARN  com.example.AppenderExample - This is a warning
+21:04:33.838 [com.example.AppenderExample.main()] ERROR com.example.AppenderExample - Something went wrong
+21:04:33.839 [com.example.AppenderExample.main()] DEBUG com.example.AppenderExample - Debug message

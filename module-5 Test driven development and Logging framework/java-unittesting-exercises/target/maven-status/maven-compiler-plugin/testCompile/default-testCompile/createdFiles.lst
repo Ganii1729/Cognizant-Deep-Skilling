@@ -1,0 +1,9 @@
+com\example\CalculatorAAATest.class
+com\example\CalculatorTest.class
+com\example\ExceptionThrowerTest.class
+com\example\AllTests.class
+com\example\AssertionsTest.class
+com\example\OrderedTests.class
+com\example\EvenCheckerTest.class
+com\example\AppTest.class
+com\example\PerformanceTesterTest.class
