@@ -1,0 +1,2 @@
+app:
+  message: "Product Service configuration loaded successfully from Config Server!"

@@ -1,0 +1,382 @@
+/* Premium theme-driven styling for employeemanagementapp */
+
+:root {
+  --font-display: 'Outfit', 'Inter', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --transition-speed: 0.4s;
+}
+
+/* Light Theme Variables */
+.theme-light {
+  --bg-color: #f8fafc;
+  --bg-gradient: radial-gradient(circle at top right, rgba(59, 130, 246, 0.05), transparent 45%);
+  --text-main: #0f172a;
+  --text-muted: #475569;
+  --card-bg: rgba(255, 255, 255, 0.7);
+  --card-border: rgba(15, 23, 42, 0.08);
+  --card-shadow: 0 10px 25px rgba(15, 23, 42, 0.05);
+  --nav-bg: rgba(255, 255, 255, 0.75);
+}
+
+/* Dark Theme Variables */
+.theme-dark {
+  --bg-color: #030712;
+  --bg-gradient: radial-gradient(circle at top right, rgba(99, 102, 241, 0.08), transparent 45%),
+                 radial-gradient(circle at bottom left, rgba(20, 184, 166, 0.05), transparent 45%);
+  --text-main: #f9fafb;
+  --text-muted: #9ca3af;
+  --card-bg: rgba(17, 24, 39, 0.45);
+  --card-border: rgba(255, 255, 255, 0.08);
+  --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  --nav-bg: rgba(17, 24, 39, 0.6);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* App Container */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-color);
+  background-image: var(--bg-gradient);
+  color: var(--text-main);
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+/* Glassmorphism Common Panel */
+.glass-panel {
+  background: var(--nav-bg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  box-shadow: var(--card-shadow);
+  transition: background-color var(--transition-speed), border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+/* Navigation & Header */
+.app-header {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 2rem 0 2rem;
+  width: 100%;
+}
+
+.header-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 2rem;
+  margin-bottom: 3rem;
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 850;
+  letter-spacing: -0.5px;
+  background: linear-gradient(135deg, #3b82f6, #6366f1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.theme-toggle-container {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.theme-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  font-family: var(--font-display);
+}
+
+.hero-section {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-section h1 {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  letter-spacing: -1px;
+}
+
+.hero-section p {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
+/* Dashboard Content Grid */
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem;
+  width: 100%;
+  flex: 1;
+}
+
+.dashboard-layout {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 2.5rem;
+}
+
+.list-area {
+  display: flex;
+  flex-direction: column;
+}
+
+.employee-list-container h3 {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.list-desc {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+}
+
+.employee-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Employee Card */
+.employee-card {
+  display: grid;
+  grid-template-columns: 60px 1.5fr 1fr;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.75rem 2rem;
+  border-radius: 12px;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--card-shadow);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color var(--transition-speed), border-color var(--transition-speed);
+}
+
+.employee-card:hover {
+  transform: translateY(-2px);
+}
+
+.card-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3b82f6, #6366f1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.card-info h4 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.card-info p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.card-info .role {
+  color: var(--text-main);
+  font-weight: 500;
+}
+
+/* Context styling of buttons inside Card component */
+.btn {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.65rem 1.25rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-align: center;
+  width: 100%;
+}
+
+/* Theme context matches button styling */
+.btn-light {
+  background: #0f172a;
+  color: #f8fafc;
+}
+
+.btn-light:hover {
+  background: #334155;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+}
+
+.btn-dark {
+  background: #38bdf8;
+  color: #0f172a;
+}
+
+.btn-dark:hover {
+  background: #7dd3fc;
+  box-shadow: 0 4px 15px rgba(56, 189, 248, 0.3);
+}
+
+/* Main Toggle Theme button */
+.btn-toggle-light {
+  background: rgba(15, 23, 42, 0.05);
+  color: #0f172a;
+  border: 1px solid rgba(15, 23, 42, 0.1);
+}
+
+.btn-toggle-light:hover {
+  background: rgba(15, 23, 42, 0.1);
+}
+
+.btn-toggle-dark {
+  background: rgba(255, 255, 255, 0.05);
+  color: #f9fafb;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-toggle-dark:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Concepts guide sidebar */
+.concepts-card {
+  padding: 2rem;
+}
+
+.concepts-card h3 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.tabs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--card-border);
+  padding-bottom: 1rem;
+  transition: border-color var(--transition-speed);
+}
+
+.tab-link {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  padding: 0.65rem 0.85rem;
+  border-radius: 6px;
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tab-link:hover {
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-main);
+}
+
+.tab-link.active {
+  background: rgba(59, 130, 246, 0.12);
+  color: #3b82f6;
+  border-left: 3px solid #3b82f6;
+  border-radius: 0 6px 6px 0;
+}
+
+.tab-pane h4 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  margin-bottom: 0.4rem;
+}
+
+.tab-pane p {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* Footer layout */
+.app-footer {
+  text-align: center;
+  padding: 2rem;
+  border-top: 1px solid var(--card-border);
+  background: rgba(0, 0, 0, 0.1);
+  margin-top: 5rem;
+  transition: border-color var(--transition-speed);
+}
+
+.app-footer p {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+/* Responsive configurations */
+@media (max-width: 900px) {
+  .dashboard-layout {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .app-header {
+    padding: 1.5rem 1rem 0 1rem;
+  }
+  .header-nav {
+    flex-direction: column;
+    padding: 1.25rem;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+  }
+  .hero-section h1 {
+    font-size: 2.25rem;
+  }
+  .main-content {
+    padding: 1.5rem 1rem;
+  }
+  .employee-card {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 1.5rem;
+  }
+  .card-avatar {
+    margin: 0 auto;
+  }
+}

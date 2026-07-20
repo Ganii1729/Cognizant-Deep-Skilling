@@ -1,0 +1,35 @@
+/* CSS Module for CohortDetails component */
+
+.box {
+  width: 300px;
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 20px;
+  border: 1px solid #000000;
+  border-radius: 10px;
+  background: rgba(17, 24, 39, 0.4);
+  vertical-align: top;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.35);
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.box:hover {
+  transform: translateY(-3px);
+  border-color: #6366f1;
+}
+
+dt {
+  font-weight: 500;
+  color: #a78bfa;
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+dd {
+  color: #e2e8f0;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  margin-left: 0;
+}

@@ -1,0 +1,437 @@
+/* Premium styling for ticketraisingapp */
+
+:root {
+  --bg-slate: #030712;
+  --bg-card: rgba(17, 24, 39, 0.55);
+  --primary-blue: #3b82f6;
+  --accent-amber: #f59e0b;
+  --text-main: #f9fafb;
+  --text-dim: #9ca3af;
+  --border-slate: rgba(255, 255, 255, 0.08);
+  --font-family-display: 'Outfit', 'Inter', sans-serif;
+  --font-family-body: 'Inter', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-slate);
+  color: var(--text-main);
+  font-family: var(--font-family-body);
+  line-height: 1.6;
+  background: radial-gradient(circle at top right, rgba(245, 158, 11, 0.05), transparent 45%),
+              radial-gradient(circle at bottom left, rgba(59, 130, 246, 0.06), transparent 45%);
+}
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Glassmorphism Common Panel */
+.glass-panel {
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-slate);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+/* Header Navigation styles */
+.app-header {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 2rem 0 2rem;
+  width: 100%;
+}
+
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.brand-logo {
+  font-family: var(--font-family-display);
+  font-size: 1.4rem;
+  font-weight: 850;
+  letter-spacing: -0.5px;
+}
+
+.logo-accent {
+  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.badge {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.25);
+  padding: 0.35rem 0.85rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.hero-banner {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-banner h1 {
+  font-family: var(--font-family-display);
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  letter-spacing: -1px;
+}
+
+.hero-banner p {
+  color: var(--text-dim);
+  font-size: 1.1rem;
+}
+
+/* Main Dashboard content grid */
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem;
+  width: 100%;
+  flex: 1;
+}
+
+.content-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 2.5rem;
+}
+
+.left-column, .right-column {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+/* Ticket Raising Form card */
+.register-panel {
+  padding: 2.5rem;
+}
+
+.register-panel h3 {
+  font-family: var(--font-family-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.register-panel .sub-header {
+  color: var(--text-dim);
+  font-size: 0.90rem;
+  margin-bottom: 2rem;
+}
+
+.complaint-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  font-weight: 500;
+}
+
+.complaint-form input, .complaint-form select, .complaint-form textarea {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--border-slate);
+  border-radius: 8px;
+  color: white;
+  font-size: 1rem;
+  font-family: var(--font-family-body);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.complaint-form textarea {
+  resize: vertical;
+}
+
+.complaint-form input:focus, .complaint-form select:focus, .complaint-form textarea:focus {
+  outline: none;
+  border-color: var(--accent-amber);
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.15);
+}
+
+/* Active Complaints Feed Panel */
+.complaints-feed {
+  padding: 2.5rem;
+}
+
+.complaints-feed h3 {
+  font-family: var(--font-family-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.feed-desc {
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  margin-bottom: 2rem;
+}
+
+.feed-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-height: 480px;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+/* Scrollbar styles */
+.feed-list::-webkit-scrollbar {
+  width: 6px;
+}
+.feed-list::-webkit-scrollbar-track {
+  background: rgba(0,0,0,0.1);
+}
+.feed-list::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.05);
+  border-radius: 3px;
+}
+.feed-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(255,255,255,0.15);
+}
+
+/* Individual Ticket Item Cards */
+.ticket-card {
+  background: rgba(0,0,0,0.2);
+  border: 1px solid var(--border-slate);
+  border-radius: 8px;
+  padding: 1.25rem;
+  animation: slideIn 0.3s ease-out forwards;
+}
+
+.ticket-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.ticket-ref {
+  font-family: var(--font-family-display);
+  font-weight: 750;
+  font-size: 0.95rem;
+  color: #fbbf24;
+  letter-spacing: 0.5px;
+}
+
+.status-tag {
+  font-size: 0.75rem;
+  font-weight: 750;
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.status-open {
+  background: rgba(59, 130, 246, 0.15);
+  color: #60a5fa;
+}
+
+.status-in-progress {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbd23;
+}
+
+.ticket-description {
+  color: var(--text-main);
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.ticket-meta {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  border-top: 1px solid rgba(255,255,255,0.04);
+  padding-top: 0.75rem;
+}
+
+.ticket-meta strong {
+  color: white;
+}
+
+.empty-feed {
+  color: var(--text-dim);
+  font-style: italic;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+/* Concept Cards */
+.concepts-card {
+  padding: 2rem;
+}
+
+.concepts-card h3 {
+  font-family: var(--font-family-display);
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-desc {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  margin-bottom: 1.5rem;
+}
+
+.tabs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-slate);
+  padding-bottom: 1rem;
+}
+
+.tab-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-dim);
+  padding: 0.65rem 0.85rem;
+  border-radius: 6px;
+  font-family: var(--font-family-display);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tab-btn:hover {
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-main);
+}
+
+.tab-btn.active {
+  background: rgba(245, 158, 11, 0.12);
+  color: #fbbf24;
+  border-left: 3px solid var(--accent-amber);
+  border-radius: 0 6px 6px 0;
+}
+
+.tab-body h4 {
+  font-family: var(--font-family-display);
+  font-size: 1.05rem;
+  margin-bottom: 0.4rem;
+  color: white;
+}
+
+.tab-body p {
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  line-height: 1.5;
+}
+
+/* Buttons style configurations */
+.btn {
+  font-family: var(--font-family-display);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: white;
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+}
+
+.btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(245, 158, 11, 0.4);
+}
+
+/* Footer layout */
+.app-footer {
+  text-align: center;
+  padding: 2rem;
+  border-top: 1px solid var(--border-slate);
+  background: rgba(3, 7, 18, 0.8);
+  margin-top: 5rem;
+}
+
+.app-footer p {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+}
+
+/* Animations configurations */
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive configurations */
+@media (max-width: 950px) {
+  .content-layout {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .app-header {
+    padding: 1.5rem 1rem 0 1rem;
+  }
+  .nav-bar {
+    flex-direction: column;
+    padding: 1.25rem;
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+  }
+  .hero-banner h1 {
+    font-size: 2.25rem;
+  }
+  .main-content {
+    padding: 1.5rem 1rem;
+  }
+  .register-panel, .complaints-feed {
+    padding: 1.5rem;
+  }
+  .ticket-meta {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+}

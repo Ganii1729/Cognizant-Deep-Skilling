@@ -1,0 +1,578 @@
+/* Premium styling for ticketbookingapp */
+
+:root {
+  --bg-slate: #020617;
+  --bg-panel: rgba(15, 23, 42, 0.55);
+  --primary-blue: #2563eb;
+  --primary-indigo: #4f46e5;
+  --accent-cyan: #06b6d4;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --border-slate: rgba(255, 255, 255, 0.08);
+  --font-family-display: 'Outfit', 'Inter', sans-serif;
+  --font-family-body: 'Inter', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--bg-slate);
+  color: var(--text-primary);
+  font-family: var(--font-family-body);
+  line-height: 1.6;
+  background: radial-gradient(circle at top left, rgba(37, 99, 235, 0.1), transparent 45%),
+              radial-gradient(circle at bottom right, rgba(99, 102, 241, 0.06), transparent 45%);
+}
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Glassmorphism Common Panel */
+.glass-panel {
+  background: var(--bg-panel);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-slate);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Header & Nav Styles */
+.app-header {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 2rem 2rem 0 2rem;
+  width: 100%;
+}
+
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.brand-logo {
+  font-family: var(--font-family-display);
+  font-size: 1.5rem;
+  font-weight: 850;
+  letter-spacing: -0.5px;
+}
+
+.logo-accent {
+  background: linear-gradient(135deg, #60a5fa, #22d3ee);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-banner {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-banner h1 {
+  font-family: var(--font-family-display);
+  font-size: 3.25rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  letter-spacing: -1px;
+  line-height: 1.2;
+}
+
+.hero-banner p {
+  color: var(--text-secondary);
+  font-size: 1.15rem;
+}
+
+/* Main Layout Grid */
+.main-content {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 2.5rem 2rem;
+  width: 100%;
+  flex: 1;
+}
+
+.content-layout {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 2.5rem;
+}
+
+.left-column, .right-column {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+/* Banners / Alert styles */
+.alert-banner {
+  padding: 0.9rem 1.5rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.success-alert {
+  background: rgba(34, 197, 94, 0.1);
+  color: #4ade80;
+  border: 1px solid rgba(34, 197, 94, 0.2);
+}
+
+.warning-alert {
+  background: rgba(234, 179, 8, 0.08);
+  color: #facc15;
+  border: 1px solid rgba(234, 179, 8, 0.15);
+}
+
+/* Flight Details Card */
+.flight-card {
+  padding: 2.5rem;
+}
+
+.flight-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--border-slate);
+  padding-bottom: 1.25rem;
+}
+
+.airline-badge {
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  border: 1px solid var(--border-slate);
+  padding: 0.4rem 1rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-family: var(--font-family-display);
+  font-size: 0.9rem;
+}
+
+.flight-code {
+  font-family: var(--font-family-display);
+  font-weight: 750;
+  color: var(--accent-cyan);
+  letter-spacing: 1px;
+}
+
+.flight-route-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.route-terminal h2 {
+  font-family: var(--font-family-display);
+  font-size: 2.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  color: white;
+}
+
+.terminal-time {
+  display: block;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-top: 0.25rem;
+}
+
+.terminal-city {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.route-divider {
+  flex: 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.duration-label {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.plane-line {
+  position: relative;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2) 20%, rgba(255,255,255,0.2) 80%, transparent);
+}
+
+.plane-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(90deg);
+  font-size: 1rem;
+  text-shadow: 0 0 10px var(--primary-blue);
+}
+
+.aircraft-label {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+/* Guest View Call to Action */
+.cta-panel {
+  padding: 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+
+.cta-content h3 {
+  font-family: var(--font-family-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.cta-content p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+}
+
+/* User View Booking Panel */
+.booking-panel {
+  padding: 2.5rem;
+}
+
+.booking-panel h3 {
+  font-family: var(--font-family-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.booking-panel .sub-header {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-bottom: 2rem;
+}
+
+.booking-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.booking-form input, .booking-form select {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--border-slate);
+  border-radius: 8px;
+  color: white;
+  font-size: 1rem;
+  font-family: var(--font-family-body);
+  transition: border-color 0.2s;
+}
+
+.booking-form input:focus, .booking-form select:focus {
+  outline: none;
+  border-color: var(--primary-blue);
+}
+
+.price-display {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  min-height: 42px;
+  font-family: var(--font-family-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--accent-cyan);
+}
+
+/* Interactive Boarding Pass Receipt */
+.receipt-card {
+  overflow: hidden;
+  border-left: 4px solid var(--accent-cyan);
+}
+
+.animate-receipt {
+  animation: slideInReceipt 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.receipt-header {
+  background: rgba(6, 182, 212, 0.1);
+  padding: 1.25rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+}
+
+.receipt-header h4 {
+  font-family: var(--font-family-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: white;
+}
+
+.pnr-badge {
+  background: rgba(6, 182, 212, 0.2);
+  color: #22d3ee;
+  border: 1px solid rgba(6, 182, 212, 0.3);
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  font-family: var(--font-family-display);
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.receipt-body {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.receipt-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95rem;
+}
+
+.receipt-row span {
+  color: var(--text-secondary);
+}
+
+.status-confirmed {
+  background: rgba(34, 197, 94, 0.15);
+  color: #4ade80;
+  padding: 0.1rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 750;
+  text-transform: uppercase;
+}
+
+/* Concepts display Card */
+.concepts-card {
+  padding: 2.5rem;
+}
+
+.concepts-card h3 {
+  font-family: var(--font-family-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.card-desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.tabs-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--border-slate);
+  padding-bottom: 1rem;
+}
+
+.tab-link {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-family: var(--font-family-display);
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.tab-link:hover {
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-primary);
+}
+
+.tab-link.active {
+  background: rgba(37, 99, 235, 0.15);
+  color: #60a5fa;
+  border-left: 3px solid var(--primary-blue);
+  border-radius: 0 8px 8px 0;
+}
+
+.tab-body h4 {
+  font-family: var(--font-family-display);
+  font-size: 1.15rem;
+  margin-bottom: 0.5rem;
+}
+
+.tab-body p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* Custom Buttons definitions */
+.btn {
+  font-family: var(--font-family-display);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-primary {
+  background: var(--primary-blue);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #1d4ed8;
+  box-shadow: 0 4px 15px rgba(37, 99, 235, 0.4);
+}
+
+.btn-login {
+  background: var(--primary-indigo);
+  color: white;
+}
+
+.btn-login:hover {
+  background: #4338ca;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.35);
+}
+
+.btn-logout {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+  border: 1px solid var(--border-slate);
+}
+
+.btn-logout:hover {
+  background: rgba(255, 99, 99, 0.1);
+  color: #fca5a5;
+  border-color: rgba(239, 68, 68, 0.3);
+}
+
+/* Footer Section */
+.app-footer {
+  text-align: center;
+  padding: 2rem;
+  border-top: 1px solid var(--border-slate);
+  background: rgba(2, 6, 23, 0.8);
+  margin-top: 5rem;
+}
+
+.app-footer p {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+/* Keyframes Animation rules */
+@keyframes slideInReceipt {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade {
+  animation: fadeIn 0.4s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Responsive Queries */
+@media (max-width: 950px) {
+  .content-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .app-header {
+    padding: 1.5rem 1rem 0 1rem;
+  }
+  .nav-bar {
+    padding: 1rem 1.5rem;
+    margin-bottom: 2rem;
+  }
+  .hero-banner h1 {
+    font-size: 2.25rem;
+  }
+  .main-content {
+    padding: 1.5rem 1rem;
+  }
+  .cta-panel {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem;
+    gap: 1.5rem;
+  }
+  .cta-panel button {
+    width: 100%;
+  }
+  .flight-card {
+    padding: 1.5rem;
+  }
+  .flight-route-row {
+    flex-direction: column;
+    text-align: center;
+  }
+  .route-divider {
+    padding: 1rem 0;
+  }
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+}

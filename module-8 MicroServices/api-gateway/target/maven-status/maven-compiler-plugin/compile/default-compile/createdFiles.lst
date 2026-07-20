@@ -1,0 +1,4 @@
+com\example\gateway\config\LoadBalancerConfiguration.class
+com\example\gateway\config\ResilienceConfiguration.class
+com\example\gateway\ApiGatewayApplication.class
+com\example\gateway\filter\LoggingFilter.class
