@@ -1,0 +1,37 @@
+<div class="detail-container">
+  <a routerLink="/courses" class="back-link">← Back to Course Catalog</a>
+
+  <div *ngIf="errorMessage" class="error-banner">
+    {{ errorMessage }}
+  </div>
+
+  <div *ngIf="course" class="detail-card">
+    <div class="detail-header">
+      <span class="course-code-badge">{{ course.code }}</span>
+      <h2>{{ course.name }}</h2>
+    </div>
+
+    <div class="detail-grid">
+      <div class="detail-item">
+        <span class="label">Course ID:</span>
+        <span class="value">{{ course.id }}</span>
+      </div>
+      <div class="detail-item">
+        <span class="label">Academic Credits:</span>
+        <span class="value">{{ course.credits | creditLabel }}</span>
+      </div>
+      <div class="detail-item">
+        <span class="label">Current Status:</span>
+        <span class="value capitalize">{{ course.gradeStatus }}</span>
+      </div>
+    </div>
+
+    <div class="syllabus-section">
+      <h3>Course Overview</h3>
+      <p>
+        This course delivers an in-depth study of {{ course.name }}, designed for modern software developers.
+        Topics include core algorithmic patterns, robust design principles, and hands-on lab projects.
+      </p>
+    </div>
+  </div>
+</div>

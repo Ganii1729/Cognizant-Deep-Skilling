@@ -1,0 +1,59 @@
+<div class="home-container">
+  <section class="hero-section">
+    <h1>Welcome to {{ portalName }}</h1>
+    <p class="hero-subtitle">
+      Manage your academic journey, explore new courses, track grades, and register for upcoming semesters.
+    </p>
+
+    <!-- Stats Row -->
+    <div class="stats-row">
+      <div class="stat-card">
+        <span class="stat-value">{{ coursesCount }}</span>
+        <span class="stat-label">Courses Available</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-value">{{ enrolledCount }}</span>
+        <span class="stat-label">Enrolled Courses</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-value">{{ gpa }}</span>
+        <span class="stat-label">Current GPA</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Controls Section (Hands-On 2 Binding Demos) -->
+  <section class="interactive-section">
+    <h3>Portal Controls & Search</h3>
+
+    <div class="control-box">
+      <!-- Property & Event Binding -->
+      <div class="action-row">
+        <button [disabled]="!isPortalActive" (click)="onEnrollClick()" class="btn btn-primary">
+          Enroll Now
+        </button>
+        <a routerLink="/courses" class="btn btn-secondary">Browse Course Catalog</a>
+      </div>
+      <p *ngIf="message" class="message-banner">{{ message }}</p>
+    </div>
+
+    <div class="control-box">
+      <!-- Two-Way Binding -->
+      <label for="search-input" class="search-label">Quick Course Search:</label>
+      <input
+        id="search-input"
+        type="text"
+        [(ngModel)]="searchTerm"
+        placeholder="Type to filter courses..."
+        class="search-input"
+      />
+      <p class="search-result">Searching for: <strong>{{ searchTerm }}</strong></p>
+    </div>
+  </section>
+
+  <!-- Shared Service & DI Demos -->
+  <section class="widgets-section">
+    <app-course-summary-widget></app-course-summary-widget>
+    <app-notification></app-notification>
+  </section>
+</div>

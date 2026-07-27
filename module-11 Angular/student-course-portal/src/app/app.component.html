@@ -1,0 +1,13 @@
+<!-- Global Header Navbar (Hands-On 1 Task 2 Step 9) -->
+<app-header></app-header>
+
+<!-- Global HTTP Loading Overlay (Hands-On 8 Task 3 Step 91) -->
+<div *ngIf="loadingService.isLoading$ | async" class="global-loading-overlay">
+  <div class="loader-spinner"></div>
+  <span>Communicating with Portal API...</span>
+</div>
+
+<!-- Main Route Outlet (Hands-On 1 Task 2 Step 9) -->
+<main class="main-content">
+  <router-outlet></router-outlet>
+</main>

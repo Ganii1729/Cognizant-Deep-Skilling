@@ -1,0 +1,49 @@
+<div class="course-list-container">
+  <div class="page-header">
+    <h2>Course Catalog</h2>
+    <p>Browse available courses, check credit requirements, and enroll.</p>
+  </div>
+
+  <!-- Search & Filter Bar -->
+  <div class="search-bar">
+    <input
+      type="text"
+      [(ngModel)]="searchTerm"
+      (ngModelChange)="onSearchChange()"
+      placeholder="Search by course name or code (e.g. Angular, CS101)..."
+      class="search-input"
+    />
+  </div>
+
+  <!-- Selection Banner (Hands-On 2 Task 3) -->
+  <div *ngIf="selectedCourseId" class="selected-banner">
+    <p>Selected Course ID: <strong>{{ selectedCourseId }}</strong></p>
+  </div>
+
+  <!-- Loading State (Hands-On 3 Task 1 Step 25) -->
+  <div *ngIf="isLoading" class="loading-state">
+    <div class="spinner"></div>
+    <p>Loading courses...</p>
+  </div>
+
+  <!-- Main Course Grid -->
+  <div *ngIf="!isLoading">
+    <ng-container *ngIf="(courses$ | async) as ngrxCourses">
+      <div *ngIf="ngrxCourses.length > 0; else noCourses" class="course-grid">
+        <app-course-card
+          *ngFor="let c of ngrxCourses; let i = index; trackBy: trackByCourseId"
+          [course]="c"
+          [isEnrolled]="(enrolledIds$ | async)?.includes(c.id) || isEnrolledInService(c.id)"
+          (enrollRequested)="onEnroll($event)">
+        </app-course-card>
+      </div>
+    </ng-container>
+
+    <!-- Empty State ng-template (Hands-On 3 Task 1 Step 28) -->
+    <ng-template #noCourses>
+      <div class="no-courses-card">
+        <p class="empty-text">No courses available.</p>
+      </div>
+    </ng-template>
+  </div>
+</div>
